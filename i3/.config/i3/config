@@ -79,6 +79,9 @@ bindsym $mod+b exec firefox
 # Lock Screen
 bindsym $mod+Mod1+l exec i3lock --nofork -e -p default -i ~/.config/backgrounds/window-view-animefantasyfields.png
 
+# Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
  
 
 
