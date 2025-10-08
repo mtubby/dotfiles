@@ -1,0 +1,3 @@
+timeout 300 'swaylock -i /home/matthew/.config/backgrounds/lockscreen/window-blur-lock.jpg' 
+# before-sleep 'swaylock -f'
+

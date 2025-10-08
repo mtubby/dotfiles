@@ -1,0 +1,191 @@
+{
+  "layer": "top",
+  "position": "top",
+  "autohide": true,
+  "autohide-blocked": false,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  /* === Modules Order === */
+  "modules-left": [
+    "custom/archicon",
+    "clock",
+    "cpu",
+    "memory",
+    "disk",
+    "temperature"
+  ],
+  "modules-center": [
+    "niri/workspaces"
+  ],
+  "modules-right": [
+    "wlr/taskbar",
+    "idle_inhibitor",
+//    "pulseaudio/slider",
+    "pulseaudio",
+    "battery",
+    "backlight",
+    "network",
+    "bluetooth",
+    "custom/powermenu"
+//    "niri/language"
+    
+  ],
+  /* === Modules Left === */
+  "custom/archicon": {
+    "format": "",
+/*    "on-click": "wofi --show drun", */
+    "on-click": "fuzzel",
+    "tooltip": false
+  },
+  "clock": {
+    "timezone": "Europe/London",
+    "format": "{:%H:%M  %d, %m}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "month"
+    }
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": true,
+    "tooltip-format": "CPU: {usage}%\nCores: {cores}"
+  },
+  "memory": {
+    "format": "{}% 󰍛",
+    "tooltip": true,
+    "tooltip-format": "RAM : {used} / {total} ({percentage}%)"
+  },
+  "disk": {
+    "format": "{percentage_free}% ",
+    "tooltip": true,
+    "tooltip-format": "Free Space : {free} / {total} ({percentage_free}%)"
+  },
+  "temperature": {
+    "thermal-zone": 3,
+    "format": "{temperatureC}°C {icon}",
+    "tooltip": true,
+    "tooltip-format": "Temperature : {temperatureC}°C\nCritical > 80°C",
+    "format-icons": [
+      ""
+    ]
+  },
+
+
+  /* === Modules Center === */
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": ""
+    },
+    "persistent-workspaces": {
+      "*": 2
+    },
+    "disable-scroll": true,
+    "all-outputs": true,
+    "show-special": true
+  },
+  /* === Modules Right === */
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "all-outputs": true,
+    "active-first": true,
+    "tooltip-format": "{name}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "rofi"
+    ]
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "pulseaudio/slider": {
+    "format": "{volume}%",
+    "tooltip": false,
+    "on-click": "pavucontrol"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": " {format_source}",
+    "on-click": "pavucontrol",
+    "format-icons": {
+      "default": [
+        "",
+        ""
+      ]
+    }
+  },
+
+"bluetooth": {
+        "format": " {status}",
+        "format-connected": "🔗 {device_alias}",
+        "format-connected-battery": "🔗 {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+
+      //  "on-click": "bluetoothctl  connect DC:2C:26:17:E2:3B", // Keyboard
+      //  "on-right-click": "bluetoothctl  connect 74:5C:4B:D7:8A:E5" // Earbuds
+    },
+
+  "battery": {
+        "interval":2,
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-full": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+  },
+
+ "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [""/*, ""*/]
+},
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{ifname} ", 
+    "format-ethernet": "{ifname} 󰈀",
+    "format-disconnected": " ",
+    "on-click": "nm-connection-editor",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+  },
+
+  "niri/language": {
+    "format": "{} ",
+    "format-en": "ENG"
+  },
+
+
+
+ "custom/powermenu": {
+//	"exec": "/home/matthew/.config/waybar/modules/power-menu.sh",
+	"format": "⏻",
+	"tooltip-format": "⏻ : Power Menu",
+	"on-click": "/home/matthew/.config/waybar/modules/power-menu.sh"
+ }
+
+
+ }
+}
