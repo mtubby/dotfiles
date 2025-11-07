@@ -134,6 +134,7 @@
 
       //  "on-click": "bluetoothctl  connect DC:2C:26:17:E2:3B", // Keyboard
       //  "on-right-click": "bluetoothctl  connect 74:5C:4B:D7:8A:E5" // Earbuds
+         "on-click": "blueman-manager"
     },
 
   "battery": {
