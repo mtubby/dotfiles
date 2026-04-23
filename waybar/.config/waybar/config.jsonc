@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "autohide": true,
+  "autohide": false,
   "autohide-blocked": false,
   "exclusive": true,
   "passthrough": false,
@@ -94,6 +94,7 @@
     "tooltip-format": "{name}",
     "on-click": "activate",
     "on-click-middle": "close",
+    "on-click-right": "minimize",
     "ignore-list": [
       "rofi"
     ]
