@@ -1,3 +1,7 @@
-timeout 300 'swaylock -i /home/matthew/.config/backgrounds/lockscreen/window-blur-lock.jpg' 
-# before-sleep 'swaylock -f'
+timeout 300 'swaylock -f -i /home/matthew/.config/backgrounds/lockscreen/window-blur-lock.jpg' 
+timeout 600 'niri msg action power-off-monitors'
+timeout 750 'systemctl suspend'
+# resume 'swaymsg "output * power on"'
+
+before-sleep 'swaylock -f -i /home/matthew/.config/backgrounds/lockscreen/window-blur-lock.jpg'
 
