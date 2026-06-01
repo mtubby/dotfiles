@@ -303,6 +303,17 @@ hotkey-overlay {
     // skip-at-startup
 }
 
+
+// Gestures -----------------------
+// Disable the hot corners.
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+
+
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
@@ -380,9 +391,16 @@ window-rule {
 switch-events {
 //    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
 //    lid-open { spawn "notify-send" "The laptop lid is open!"; }
-	lid-close { spawn "swaylock" "-i" "/home/matthew/.config/backgrounds/lockscreen/window-blur-lock.jpg"; }
+
+// lid-close { spawn "sh" "-c" "swaylock" "-i" "/home/matthew/.config/backgrounds/lockscreen/window-blur-lock.jpg";}
+
+// config ./config/swaylock/conf
+lid-close { spawn "swaylock" "-f"; }
+
 
 }
+
+
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -404,10 +422,16 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty";}
 
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-i" "/home/matthew/.config/backgrounds/lockscreen/window-blur-lock.jpg"; }
+   //  Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-i" "/home/matthew/.config/backgrounds/lockscreen/window-blur-lock.jpg"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-f"; }
+
+
 
     Mod+B hotkey-overlay-title="Run Application: firefox" { spawn "firefox"; }
     Mod+Alt+B hotkey-overlay-title="Run Application: chrome" {spawn "google-chrome-stable";}
+
+    Mod+Ctrl+B hotkey-overlay-title="Next Background" {spawn-sh "/home/matthew/.config/niri/niri-swaybg.sh";}
+
 
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -592,7 +616,7 @@ binds {
     Mod+Shift+R hotkey-overlay-title="Preset Height" { switch-preset-window-height; }
     Mod+Ctrl+R hotkey-overlay-title="Reset Height" { reset-window-height; }
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Shift+F hotkey-overlay-title="Fullscreen" { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
